@@ -216,11 +216,27 @@ namespace Miia
 
         }
 
+        private configuration.Configuration.Movie get_movie(string name)
+        {
+            foreach (configuration.Configuration.Movie movie in configuration.library)
+            {
+                if (movie.name == name)
+                    return (movie);
+            }
+
+            return (null);
+        }
+
         private void view_content_DoubleClick(object sender, EventArgs e)
         {
             if (view_content.SelectedItems.Count > 0)
             {
-                window_preview = new window.Preview();
+                window_preview = new window.Preview(
+                    view_content.LargeImageList.Images[view_content.SelectedIndices[0]],
+                    configuration.root,
+                    configuration.default_name,
+                    get_movie(view_content.SelectedItems[0].Text)
+                );
 
                 window_preview.ShowDialog();
             }
