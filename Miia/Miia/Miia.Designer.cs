@@ -39,6 +39,9 @@ namespace Miia
             this.label1 = new System.Windows.Forms.Label();
             this.button_close = new System.Windows.Forms.Button();
             this.view_content = new System.Windows.Forms.ListView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button_queue = new System.Windows.Forms.Button();
+            this.button_favorite = new System.Windows.Forms.Button();
             this.border.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +49,9 @@ namespace Miia
             // border
             // 
             this.border.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.border.Controls.Add(this.button_favorite);
+            this.border.Controls.Add(this.button_queue);
+            this.border.Controls.Add(this.panel1);
             this.border.Controls.Add(this.button_reload);
             this.border.Controls.Add(this.button_settings);
             this.border.Controls.Add(this.panel_space);
@@ -56,7 +62,7 @@ namespace Miia
             this.border.Dock = System.Windows.Forms.DockStyle.Top;
             this.border.Location = new System.Drawing.Point(0, 0);
             this.border.Name = "border";
-            this.border.Size = new System.Drawing.Size(1050, 25);
+            this.border.Size = new System.Drawing.Size(1000, 25);
             this.border.TabIndex = 5;
             this.border.MouseDown += new System.Windows.Forms.MouseEventHandler(this.border_MouseDown);
             this.border.MouseMove += new System.Windows.Forms.MouseEventHandler(this.border_MouseMove);
@@ -74,7 +80,7 @@ namespace Miia
             this.button_reload.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.button_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_reload.ForeColor = System.Drawing.Color.Transparent;
-            this.button_reload.Location = new System.Drawing.Point(928, 0);
+            this.button_reload.Location = new System.Drawing.Point(878, 0);
             this.button_reload.Name = "button_reload";
             this.button_reload.Size = new System.Drawing.Size(25, 25);
             this.button_reload.TabIndex = 9;
@@ -93,7 +99,7 @@ namespace Miia
             this.button_settings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.button_settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_settings.ForeColor = System.Drawing.Color.Transparent;
-            this.button_settings.Location = new System.Drawing.Point(953, 0);
+            this.button_settings.Location = new System.Drawing.Point(903, 0);
             this.button_settings.Name = "button_settings";
             this.button_settings.Size = new System.Drawing.Size(25, 25);
             this.button_settings.TabIndex = 8;
@@ -103,7 +109,7 @@ namespace Miia
             // panel_space
             // 
             this.panel_space.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel_space.Location = new System.Drawing.Point(978, 0);
+            this.panel_space.Location = new System.Drawing.Point(928, 0);
             this.panel_space.Name = "panel_space";
             this.panel_space.Size = new System.Drawing.Size(22, 25);
             this.panel_space.TabIndex = 7;
@@ -120,7 +126,7 @@ namespace Miia
             this.button_reduce.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.button_reduce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_reduce.ForeColor = System.Drawing.Color.Transparent;
-            this.button_reduce.Location = new System.Drawing.Point(1000, 0);
+            this.button_reduce.Location = new System.Drawing.Point(950, 0);
             this.button_reduce.Name = "button_reduce";
             this.button_reduce.Size = new System.Drawing.Size(25, 25);
             this.button_reduce.TabIndex = 7;
@@ -159,7 +165,7 @@ namespace Miia
             this.button_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(66)))), ((int)(((byte)(69)))));
             this.button_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_close.ForeColor = System.Drawing.Color.Transparent;
-            this.button_close.Location = new System.Drawing.Point(1025, 0);
+            this.button_close.Location = new System.Drawing.Point(975, 0);
             this.button_close.Name = "button_close";
             this.button_close.Size = new System.Drawing.Size(25, 25);
             this.button_close.TabIndex = 2;
@@ -173,17 +179,65 @@ namespace Miia
             this.view_content.ForeColor = System.Drawing.Color.White;
             this.view_content.HideSelection = false;
             this.view_content.Location = new System.Drawing.Point(12, 31);
+            this.view_content.MultiSelect = false;
             this.view_content.Name = "view_content";
-            this.view_content.Size = new System.Drawing.Size(1026, 607);
+            this.view_content.Size = new System.Drawing.Size(976, 607);
             this.view_content.TabIndex = 6;
             this.view_content.UseCompatibleStateImageBehavior = false;
+            this.view_content.DoubleClick += new System.EventHandler(this.view_content_DoubleClick);
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(856, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(22, 25);
+            this.panel1.TabIndex = 10;
+            // 
+            // button_queue
+            // 
+            this.button_queue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_queue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_queue.BackgroundImage")));
+            this.button_queue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_queue.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button_queue.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_queue.FlatAppearance.BorderSize = 0;
+            this.button_queue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_queue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_queue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_queue.ForeColor = System.Drawing.Color.Transparent;
+            this.button_queue.Location = new System.Drawing.Point(831, 0);
+            this.button_queue.Name = "button_queue";
+            this.button_queue.Size = new System.Drawing.Size(25, 25);
+            this.button_queue.TabIndex = 11;
+            this.button_queue.UseVisualStyleBackColor = false;
+            this.button_queue.Click += new System.EventHandler(this.button_queue_Click);
+            // 
+            // button_favorite
+            // 
+            this.button_favorite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_favorite.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_favorite.BackgroundImage")));
+            this.button_favorite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_favorite.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button_favorite.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_favorite.FlatAppearance.BorderSize = 0;
+            this.button_favorite.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_favorite.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_favorite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_favorite.ForeColor = System.Drawing.Color.Transparent;
+            this.button_favorite.Location = new System.Drawing.Point(806, 0);
+            this.button_favorite.Name = "button_favorite";
+            this.button_favorite.Size = new System.Drawing.Size(25, 25);
+            this.button_favorite.TabIndex = 12;
+            this.button_favorite.UseVisualStyleBackColor = false;
+            this.button_favorite.Click += new System.EventHandler(this.button_favorite_Click);
             // 
             // Miia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(1050, 650);
+            this.ClientSize = new System.Drawing.Size(1000, 650);
             this.Controls.Add(this.view_content);
             this.Controls.Add(this.border);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -209,6 +263,9 @@ namespace Miia
         private System.Windows.Forms.Panel panel_space;
         private System.Windows.Forms.Button button_settings;
         private System.Windows.Forms.Button button_reload;
+        private System.Windows.Forms.Button button_favorite;
+        private System.Windows.Forms.Button button_queue;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

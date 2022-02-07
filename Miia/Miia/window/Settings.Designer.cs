@@ -146,10 +146,10 @@ namespace Miia.window
             this.button_browse.BackColor = System.Drawing.Color.Transparent;
             this.button_browse.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_browse.BackgroundImage")));
             this.button_browse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_browse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(66)))), ((int)(((byte)(69)))));
+            this.button_browse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.button_browse.FlatAppearance.BorderSize = 0;
-            this.button_browse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(66)))), ((int)(((byte)(69)))));
-            this.button_browse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(66)))), ((int)(((byte)(69)))));
+            this.button_browse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.button_browse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.button_browse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_browse.ForeColor = System.Drawing.Color.Transparent;
             this.button_browse.Location = new System.Drawing.Point(278, 81);

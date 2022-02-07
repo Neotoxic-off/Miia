@@ -37,3 +37,4 @@ C:\Users\paulg\Documents\Code\Miia\Miia\Miia\bin\Debug\ComponentFactory.Krypton.
 C:\Users\paulg\Documents\Code\Miia\Miia\Miia\bin\Debug\Newtonsoft.Json.dll
 C:\Users\paulg\Documents\Code\Miia\Miia\Miia\bin\Debug\Newtonsoft.Json.xml
 C:\Users\paulg\Documents\Code\Miia\Miia\Miia\obj\Debug\Miia.csproj.CopyComplete
+C:\Users\paulg\Documents\Code\Miia\Miia\Miia\obj\Debug\Miia.window.Preview.resources

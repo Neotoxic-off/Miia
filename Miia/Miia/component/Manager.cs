@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Form;
+using System.Windows.Forms;
 
 namespace Miia.component
 {
@@ -22,8 +22,15 @@ namespace Miia.component
         {
             controller.Invoke(new MethodInvoker(async delegate
             {
-                for (int i = 0; i < items.Count; i++) {
-                    controller.items.Add(items[i], i);
+                if (items != null)
+                {
+                    for (int i = 0; i < items.Count; i++)
+                    {
+                        controller.Items.Add(items[i], i);
+                    }
+                } else
+                {
+                    controller.Items.Clear();
                 }
 
                 controller.LargeImageList = images;

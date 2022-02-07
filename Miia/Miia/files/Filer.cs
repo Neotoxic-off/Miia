@@ -13,7 +13,7 @@ namespace Miia.files
         {
             if (Directory.Exists(path) == true)
             {
-                return (Directory.GetDirectories(path, "", searchOption.AllDirectories));
+                return (Directory.GetDirectories(path, "*"));
             }
 
             return (null);

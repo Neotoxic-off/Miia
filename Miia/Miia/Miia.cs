@@ -19,12 +19,18 @@ namespace Miia
         private bool mouse_down = false;
 
         private configuration.Configuration.Content configuration = null;
+        private configuration.Manager manager = new configuration.Manager();
+        private component.Manager component_manager = new component.Manager();
+        private files.Filer filer = new files.Filer();
+
         private window.Settings window_settings = null;
-        private events.Events events = new events.Events(view_content);
+        private window.Preview window_preview = null;
 
         private BackgroundWorker worker_loader = new BackgroundWorker();
         private BackgroundWorker worker_builder = new BackgroundWorker();
         private BackgroundWorker worker_saver = new BackgroundWorker();
+
+        private Image no_splash = Image.FromFile("assets\\no_splash.png");
 
         public Miia()
         {
@@ -34,9 +40,9 @@ namespace Miia
 
         private void InitializeWorker()
         {
-            worker_loader.DoWork += new DoWorkEventHandler(events.loader);
-            worker_saver.DoWork += new DoWorkEventHandler(events.saver);
-            worker_builder.DoWork += new DoWorkEventHandler(events.builder);
+            worker_loader.DoWork += new DoWorkEventHandler(loader);
+            worker_saver.DoWork += new DoWorkEventHandler(saver);
+            worker_builder.DoWork += new DoWorkEventHandler(builder);
         }
 
         private void button_close_Click(object sender, EventArgs e)
@@ -102,6 +108,121 @@ namespace Miia
             while (worker_builder.IsBusy == true)
             {
                 Application.DoEvents();
+            }
+
+            worker_saver.RunWorkerAsync();
+
+            while (worker_saver.IsBusy == true)
+            {
+                Application.DoEvents();
+            }
+
+            worker_loader.RunWorkerAsync();
+
+            while (worker_loader.IsBusy == true)
+            {
+                Application.DoEvents();
+            }
+        }
+
+        public void loader(object sender, EventArgs e)
+        {
+            configuration = manager.load();
+            load_ui();
+        }
+
+        public void saver(object sender, EventArgs e)
+        {
+            manager.save(configuration);
+        }
+
+        private configuration.Configuration.Movie movie(string name, string path)
+        {
+            configuration.Configuration.Movie movie = new configuration.Configuration.Movie();
+
+            movie.name = name;
+            movie.path = path;
+            movie.splash = "splash.jpg";
+            movie.read = "0";
+
+            return (movie);
+        }
+
+        private string get_name(string path)
+        {
+            string[] splitted = path.Split('\\');
+
+            return (splitted[splitted.Length - 1]);
+        }
+
+        public void builder(object sender, EventArgs e)
+        {
+            string[] directories = null;
+
+            if (configuration.root != null)
+            {
+                directories = filer.get_directories(configuration.root);
+                configuration.library.Clear();
+                foreach (string directory in directories)
+                {
+                    configuration.library.Add(
+                        movie(
+                            get_name(directory),
+                            $"{directory.Replace($"{configuration.root}\\", string.Empty)}"
+                        )
+                    );
+                }
+            }
+        }
+
+        private void load_ui()
+        {
+            List<string> items = new List<string>();
+            ImageList images = new ImageList();
+            images.ImageSize = new Size(configuration.splash_size.width, configuration.splash_size.height);
+            string splash_path = null;
+
+            component_manager.listview(view_content, null, null);
+            foreach (configuration.Configuration.Movie movie in configuration.library)
+            {
+                if (movie.path != null)
+                {
+                    if (items.Contains(movie.path) == false)
+                    {
+                        splash_path = $"{configuration.root}\\{movie.path}\\{movie.splash}";
+                        if (File.Exists(splash_path) == true)
+                        {
+                            images.Images.Add(
+                                Image.FromFile(splash_path)
+                            );
+                        } else
+                        {
+                            images.Images.Add(no_splash);
+                        }
+                        items.Add(movie.path);
+                    }
+                }
+            }
+            component_manager.listview(view_content, images, items);
+        }
+
+        private void button_favorite_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_queue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void view_content_DoubleClick(object sender, EventArgs e)
+        {
+            if (view_content.SelectedItems.Count > 0)
+            {
+                window_preview = new window.Preview();
+
+                window_preview.ShowDialog();
             }
         }
     }

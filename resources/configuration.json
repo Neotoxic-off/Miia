@@ -12,5 +12,21 @@
             "splash" : null,
             "read" : null
         }
+    ],
+    "favorite" : [
+        {
+            "name" : null,
+            "path" : null,
+            "splash" : null,
+            "read" : null
+        }
+    ],
+    "queue" : [
+        {
+            "name" : null,
+            "path" : null,
+            "splash" : null,
+            "read" : null
+        }
     ]
 }

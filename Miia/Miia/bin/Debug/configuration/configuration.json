@@ -1,12 +1,32 @@
 {
-    "version": "1.0.0 dev",
-    "root": "C:\\",
-    "movies": [
+    "version": "0.0.0",
+    "root": null,
+    "splash_size": {
+        "width": 128,
+        "height": 192
+    },
+    "favorite": [
         {
-            "name": "Monster Musume",
-            "path": "Monster Musume",
-            "splash": "splash.jpg",
-            "read": "0"
+            "name": null,
+            "path": null,
+            "splash": null,
+            "read": null
         }
-    ]       
+    ],
+    "queue": [
+        {
+            "name": null,
+            "path": null,
+            "splash": null,
+            "read": null
+        }
+    ],
+    "library": [
+        {
+            "name": null,
+            "path": null,
+            "splash": null,
+            "read": null
+        }
+    ]
 }

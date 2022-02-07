@@ -13,6 +13,8 @@ namespace Miia.configuration
             public string version { get; set; }
             public string root { get; set; }
             public Splash splash_size { get; set; }
+            public List<Movie> favorite { get; set; }
+            public List<Movie> queue { get; set; }
             public List<Movie> library { get; set; }
         }
 

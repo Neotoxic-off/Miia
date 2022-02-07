@@ -67,9 +67,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="component\Manager.cs" />
     <Compile Include="configuration\Manager.cs" />
     <Compile Include="configuration\Configuration.cs" />
-    <Compile Include="files\Load.cs" />
+    <Compile Include="files\Filer.cs" />
     <Compile Include="Miia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +79,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="window\Preview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="window\Preview.Designer.cs">
+      <DependentUpon>Preview.cs</DependentUpon>
+    </Compile>
     <Compile Include="window\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +103,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="window\Preview.resx">
+      <DependentUpon>Preview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="window\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +126,7 @@
   <ItemGroup>
     <Content Include="logo.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>; Move all assemblies and related files to lib folder
