@@ -12,6 +12,7 @@ namespace Miia.events
     {
         private ListView view_content;
         private configuration.Manager manager = new configuration.Manager();
+        private component.Manager component_manager = new component.Manager();
         private files.Filer filer = new files.Filer();
     
         public Events(ListView view)
@@ -43,7 +44,7 @@ namespace Miia.events
 
         private void load_ui(configuration.Configuration.Content configuration)
         {
-            int i = 0;
+            List<string> items = new List<string>();
             ImageList images = new ImageList();
             images.ImageSize = new Size(128, 192);
 
@@ -52,17 +53,10 @@ namespace Miia.events
                     images.Images.Add(
                         Image.FromFile($"{configuration.root}\\{movie.path}\\{movie.splash}")
                     );
-                    view_content.Invoke(new MethodInvoker(delegate
-                    {
-                        view_content.Items.Add(movie.name, i);
-                    }));
-                    i++;
+                    items.Add(movie.name);
                 }
             }
-            view_content.Invoke(new MethodInvoker(delegate
-            {
-                view_content.LargeImageList = images;
-            }));
+            component_manager.listview(view_content, images, items);
         }
     }
 }

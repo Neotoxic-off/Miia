@@ -10,7 +10,7 @@ namespace Miia.component
 {
     public class Manager
     {
-        private async void label(Control controller, string data)
+        public async void label(Control controller, string data)
         {
             controller.Invoke(new MethodInvoker(async delegate
             {
@@ -18,7 +18,7 @@ namespace Miia.component
             }));
         }
 
-        private async void listview(ListView controller, ImageList images, string[] items)
+        public async void listview(ListView controller, ImageList images, List<string> items)
         {
             controller.Invoke(new MethodInvoker(async delegate
             {
