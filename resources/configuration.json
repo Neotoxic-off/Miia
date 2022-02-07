@@ -1,0 +1,16 @@
+{
+    "version" : "0.0.0",
+    "root" : null,
+    "splash_size" : {
+        "width" : 128,
+        "height" : 192
+    },
+    "library" : [
+        {
+            "name" : null,
+            "path" : null,
+            "splash" : null,
+            "read" : null
+        }
+    ]
+}

@@ -15,14 +15,15 @@ namespace Miia
 {
     public partial class Miia : KryptonForm
     {
-        bool mouse_down = false;
         private Point offset;
+        private bool mouse_down = false;
 
         private configuration.Configuration.Content configuration = null;
-        private configuration.Manager manager = new configuration.Manager();
         private window.Settings window_settings = null;
+        private events.Events events = new events.Events(view_content);
 
         private BackgroundWorker worker_loader = new BackgroundWorker();
+        private BackgroundWorker worker_builder = new BackgroundWorker();
         private BackgroundWorker worker_saver = new BackgroundWorker();
 
         public Miia()
@@ -33,8 +34,9 @@ namespace Miia
 
         private void InitializeWorker()
         {
-            worker_loader.DoWork += new DoWorkEventHandler(loader);
-            worker_saver.DoWork += new DoWorkEventHandler(saver);
+            worker_loader.DoWork += new DoWorkEventHandler(events.loader);
+            worker_saver.DoWork += new DoWorkEventHandler(events.saver);
+            worker_builder.DoWork += new DoWorkEventHandler(events.builder);
         }
 
         private void button_close_Click(object sender, EventArgs e)
@@ -82,40 +84,6 @@ namespace Miia
             mouse_down = false;
         }
 
-        private void loader(object sender, EventArgs e)
-        {
-            configuration = manager.load();
-            load_ui();
-        }
-
-        private void saver(object sender, EventArgs e)
-        {
-            manager.save(configuration);
-        }
-
-        private void load_ui()
-        {
-            int i = 0;
-            ImageList images = new ImageList();
-            images.ImageSize = new Size(128, 192);
-
-            foreach (configuration.Configuration.Movie movie in configuration.movies) {
-                if (movie.name != null) {
-                    images.Images.Add(
-                        Image.FromFile($"{configuration.root}\\{movie.path}\\{movie.splash}")
-                    );
-                    view_content.Invoke(new MethodInvoker(delegate
-                    {
-                        view_content.Items.Add(movie.name, i);
-                    }));
-                    i++;
-                }
-            }
-            view_content.Invoke(new MethodInvoker(delegate
-            {
-                view_content.LargeImageList = images;
-            }));
-        }
 
         private void Miia_Load(object sender, EventArgs e)
         {
@@ -129,7 +97,12 @@ namespace Miia
 
         private void button_reload_Click(object sender, EventArgs e)
         {
+            worker_builder.RunWorkerAsync();
 
+            while (worker_builder.IsBusy == true)
+            {
+                Application.DoEvents();
+            }
         }
     }
 }

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Miia.files
 {
-    public class Load
+    public class Filer
     {
         public string[] get_directories(string path)
         {
             if (Directory.Exists(path) == true)
             {
-                return (Directory.GetDirectories(path));
+                return (Directory.GetDirectories(path, "", searchOption.AllDirectories));
             }
 
             return (null);
