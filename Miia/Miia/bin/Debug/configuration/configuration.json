@@ -1,0 +1,12 @@
+{
+    "version": "1.0.0 dev",
+    "root": "C:\\",
+    "movies": [
+        {
+            "name": "Monster Musume",
+            "path": "Monster Musume",
+            "splash": "splash.jpg",
+            "read": "0"
+        }
+    ]       
+}
