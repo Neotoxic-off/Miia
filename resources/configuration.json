@@ -1,32 +1,33 @@
 {
-    "version" : "0.0.0",
-    "root" : null,
-    "splash_size" : {
-        "width" : 128,
-        "height" : 192
+    "version": "0.0.1 dev",
+    "root": null,
+    "default_name" : "No Season",
+    "splash_size": {
+        "width": 128,
+        "height": 192
     },
-    "library" : [
+    "favorite": [
         {
-            "name" : null,
-            "path" : null,
-            "splash" : null,
-            "read" : null
+            "name": null,
+            "path": null,
+            "splash": null,
+            "read": null
         }
     ],
-    "favorite" : [
+    "queue": [
         {
-            "name" : null,
-            "path" : null,
-            "splash" : null,
-            "read" : null
+            "name": null,
+            "path": null,
+            "splash": null,
+            "read": null
         }
     ],
-    "queue" : [
+    "library": [
         {
-            "name" : null,
-            "path" : null,
-            "splash" : null,
-            "read" : null
+            "name": null,
+            "path": null,
+            "splash": null,
+            "read": null
         }
     ]
 }

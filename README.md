@@ -11,8 +11,9 @@
 
 ```JSON
 {
-    "version": "0.0.0",
+    "version": null,
     "root": null,
+    "default_name" : "Season 1",
     "splash_size": {
         "width": 128,
         "height": 192
