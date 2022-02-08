@@ -12,8 +12,6 @@
   </a>
 </p>
 
-# Documentation
-
 ## Library Prepartion
 
 If the serie / anime has only 1 season you can create a subfolder or not
