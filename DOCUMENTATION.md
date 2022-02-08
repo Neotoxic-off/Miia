@@ -97,7 +97,7 @@ The following splash will be displayed instead
 ├ 📁 configuration
 │ └ 📄 configuration.json
 ├ 📄 Miia.exe
-└ 📄 Miia.conf
+└ 📄 Miia.exe.config
 ```
 
 ## Data Format
