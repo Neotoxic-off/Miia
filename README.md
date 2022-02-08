@@ -20,4 +20,4 @@
 - [X] External devices detection
 - [X] Create a subfolder if no folder is found
 
-<a href = "https://github.com/Neotoxic-off/Miia/blob/main/Documentation.md">📃 Documentation</a>
+<a href = "https://github.com/Neotoxic-off/Miia/blob/main/DOCUMENTATION.md">📃 Documentation</a>
