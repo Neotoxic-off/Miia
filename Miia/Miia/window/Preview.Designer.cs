@@ -30,7 +30,7 @@ namespace Miia.window
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Preview));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             this.border = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,10 +41,10 @@ namespace Miia.window
             this.label_seasons = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.last_watched = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.combo_seasons = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.combo_episodes = new System.Windows.Forms.ComboBox();
             this.button_play = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.border.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -154,15 +154,17 @@ namespace Miia.window
             this.last_watched.TabIndex = 17;
             this.last_watched.Text = "episode";
             // 
-            // comboBox1
+            // combo_seasons
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(198, 102);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(203, 21);
-            this.comboBox1.TabIndex = 18;
+            this.combo_seasons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.combo_seasons.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_seasons.ForeColor = System.Drawing.Color.White;
+            this.combo_seasons.FormattingEnabled = true;
+            this.combo_seasons.Location = new System.Drawing.Point(200, 102);
+            this.combo_seasons.Name = "combo_seasons";
+            this.combo_seasons.Size = new System.Drawing.Size(201, 21);
+            this.combo_seasons.TabIndex = 18;
+            this.combo_seasons.SelectedValueChanged += new System.EventHandler(this.combo_seasons_SelectedValueChanged);
             // 
             // label8
             // 
@@ -182,15 +184,16 @@ namespace Miia.window
             this.label9.TabIndex = 20;
             this.label9.Text = "Episode:";
             // 
-            // comboBox2
+            // combo_episodes
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.comboBox2.ForeColor = System.Drawing.Color.White;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(200, 127);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(201, 21);
-            this.comboBox2.TabIndex = 21;
+            this.combo_episodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.combo_episodes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_episodes.ForeColor = System.Drawing.Color.White;
+            this.combo_episodes.FormattingEnabled = true;
+            this.combo_episodes.Location = new System.Drawing.Point(200, 127);
+            this.combo_episodes.Name = "combo_episodes";
+            this.combo_episodes.Size = new System.Drawing.Size(201, 21);
+            this.combo_episodes.TabIndex = 21;
             // 
             // button_play
             // 
@@ -211,11 +214,11 @@ namespace Miia.window
             this.button_play.ColorContrastOnClick = 45;
             this.button_play.ColorContrastOnHover = 45;
             this.button_play.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges5.BottomLeft = true;
-            borderEdges5.BottomRight = true;
-            borderEdges5.TopLeft = true;
-            borderEdges5.TopRight = true;
-            this.button_play.CustomizableEdges = borderEdges5;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.button_play.CustomizableEdges = borderEdges2;
             this.button_play.DialogResult = System.Windows.Forms.DialogResult.None;
             this.button_play.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.button_play.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -239,7 +242,7 @@ namespace Miia.window
             this.button_play.IdleIconLeftImage = null;
             this.button_play.IdleIconRightImage = null;
             this.button_play.IndicateFocus = false;
-            this.button_play.Location = new System.Drawing.Point(326, 200);
+            this.button_play.Location = new System.Drawing.Point(322, 201);
             this.button_play.Name = "button_play";
             this.button_play.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.button_play.OnDisabledState.BorderRadius = 20;
@@ -280,6 +283,7 @@ namespace Miia.window
             this.button_play.TextMarginLeft = 0;
             this.button_play.TextPadding = new System.Windows.Forms.Padding(0);
             this.button_play.UseDefaultRadiusAndThickness = true;
+            this.button_play.Click += new System.EventHandler(this.button_play_Click);
             // 
             // Preview
             // 
@@ -288,10 +292,10 @@ namespace Miia.window
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(413, 236);
             this.Controls.Add(this.button_play);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.combo_episodes);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.combo_seasons);
             this.Controls.Add(this.last_watched);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label_seasons);
@@ -327,10 +331,10 @@ namespace Miia.window
         private System.Windows.Forms.Label label_seasons;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label last_watched;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox combo_seasons;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox combo_episodes;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 button_play;
     }
 }

@@ -125,6 +125,23 @@ namespace Miia
             }
         }
 
+        public void reload()
+        {
+            worker_saver.RunWorkerAsync();
+
+            while (worker_saver.IsBusy == true)
+            {
+                Application.DoEvents();
+            }
+
+            worker_loader.RunWorkerAsync();
+
+            while (worker_loader.IsBusy == true)
+            {
+                Application.DoEvents();
+            }
+        }
+
         public void loader(object sender, EventArgs e)
         {
             configuration = manager.load();
@@ -227,8 +244,20 @@ namespace Miia
             return (null);
         }
 
+        private int get_movie_index(string name)
+        {
+            for (int i = 0; i < configuration.library.Count; i++)
+            {
+                if (configuration.library[i].name == name)
+                    return (i);
+            }
+
+            return (-1);
+        }
+
         private void view_content_DoubleClick(object sender, EventArgs e)
         {
+            int index = 0;
             if (view_content.SelectedItems.Count > 0)
             {
                 window_preview = new window.Preview(
@@ -239,6 +268,12 @@ namespace Miia
                 );
 
                 window_preview.ShowDialog();
+                if (window_preview.watched != null)
+                {
+                    index = get_movie_index(view_content.SelectedItems[0].Text);
+                    configuration.library[index].read = window_preview.watched;
+                    reload();
+                }
             }
         }
     }
