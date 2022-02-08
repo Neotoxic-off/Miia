@@ -11,10 +11,7 @@
 </p>
 
 <p align = "center">
-    <img src="https://img.shields.io/github/v/tag/Neotoxic-off/Miia?color=purple&label=version&style=for-the-badge">
     <img src="https://img.shields.io/github/release-date/Neotoxic-off/Miia?color=purple&style=for-the-badge">
-    <img src="https://img.shields.io/github/commit-activity/w/Neotoxic-off/Miia?style=social">
-    <img src="https://img.shields.io/github/stars/Neotoxic-off/Miia?style=social">
 <p/>
 
 ## Features
