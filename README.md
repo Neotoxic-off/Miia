@@ -20,8 +20,8 @@
 
 - [X] GUI user frendly
 - [X] Splash screen viewer
-- [X] Queue list
-- [X] Favorite list
+- [ ] Queue list
+- [ ] Favorite list
 - [X] Editable settings
 - [X] External devices detection
 - [X] Create a subfolder if no folder is found
