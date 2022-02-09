@@ -15,6 +15,9 @@
     <img src="https://img.shields.io/github/v/release/Neotoxic-off/Miia?style=for-the-badge">
     <img src="https://img.shields.io/github/downloads/Neotoxic-off/Miia/total?style=for-the-badge">
     <img src="https://img.shields.io/github/issues/Neotoxic-off/Miia?style=for-the-badge">
+    <a href="https://discord.gg/gmDKUXmtkF">
+      <img src="https://img.shields.io/discord/941097182872875090?color=purple&label=discord&logo=discord&style=for-the-badge">
+  </a>
 <p/>
 
 ## Requirements
