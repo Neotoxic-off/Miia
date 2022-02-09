@@ -41,9 +41,11 @@
 
 ## Preview
 
-[![Presentation](https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/YOUTUBE.png)](https://youtu.be/lK89t7VI6i0?autoplay=1&mute=1)
+<p align = "center">
+    <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/PREVIEW.gif"/>
+<p/>
 
-<p align>
+<p align = "center">
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/GUI.png" height="50%" width="50%"/>
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/PREVIEW.png" height="35%" width="35%"/>
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/CLEANNER.png" height="35%" width="35%"/>
