@@ -30,6 +30,10 @@
 - Krypton
 - Newtonsoft
 
+## Documentation
+
+<a href = "https://github.com/Neotoxic-off/Miia/blob/main/DOCUMENTATION.md">📃 Documentation</a>
+
 ## Features
 
 - [X] GUI user frendly
@@ -54,6 +58,7 @@
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/CLEANNER.png" height="35%" width="35%"/>
 <p/>
 
-## Documentation
+## Todo list
 
-<a href = "https://github.com/Neotoxic-off/Miia/blob/main/DOCUMENTATION.md">📃 Documentation</a>
+- Right click manager
+- Set as serie completed
