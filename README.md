@@ -33,4 +33,6 @@
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/PREVIEW.png" height="35%" width="35%"/>
 <p/>
 
+## Documentation
+
 <a href = "https://github.com/Neotoxic-off/Miia/blob/main/DOCUMENTATION.md">📃 Documentation</a>
