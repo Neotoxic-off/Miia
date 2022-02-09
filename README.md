@@ -42,6 +42,7 @@
 <p align>
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/GUI.png" height="50%" width="50%"/>
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/PREVIEW.png" height="35%" width="35%"/>
+    <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/CLEANNER.png" height="35%" width="35%"/>
 <p/>
 
 ## Documentation
