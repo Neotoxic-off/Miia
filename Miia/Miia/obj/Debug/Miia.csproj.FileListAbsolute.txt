@@ -107,3 +107,4 @@ C:\Users\paulg\Documents\Code\Miia\Miia\Miia\bin\Debug\Bunifu.UI.WinForms.Bunifu
 C:\Users\paulg\Documents\Code\Miia\Miia\Miia\obj\Debug\Miia.exe.licenses
 C:\Users\paulg\Documents\Code\Miia\Miia\Miia\obj\Debug\Miia.window.Popup.resources
 C:\Users\paulg\Documents\Code\Miia\Miia\Miia\obj\Debug\Miia.window.Popupok.resources
+C:\Users\paulg\Documents\Code\Miia\Miia\Miia\obj\Debug\Miia.window.ContentViewer.resources

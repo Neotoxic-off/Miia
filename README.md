@@ -30,8 +30,9 @@
 
 - [X] GUI user frendly
 - [X] Splash screen viewer
-- [ ] Queue list
-- [ ] Favorite list
+- [X] Queue list
+- [X] Favorite list
+- [X] Last watched
 - [X] File renamer
 - [X] Editable settings
 - [X] External devices detection
@@ -40,7 +41,6 @@
 ## Preview
 
 [![Presentation](https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/YOUTUBE.png)](https://youtu.be/lK89t7VI6i0?autoplay=1&mute=1)
-
 
 <p align>
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/GUI.png" height="50%" width="50%"/>

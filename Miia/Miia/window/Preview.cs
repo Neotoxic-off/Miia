@@ -16,17 +16,25 @@ namespace Miia.window
 {
     public partial class Preview : KryptonForm
     {
+        private Point offset;
+        private bool mouse_down = false;
+
         private string root = null;
-        private configuration.Configuration.Movie movie = null;
-        private component.Manager manager = new component.Manager();
         private string default_name = null;
         public string watched = null;
+
+        private configuration.Configuration.Movie movie = null;
+        public bool refresh = false;
+        private List<string> new_favorite = null;
+        private List<string> new_queue = null;
+        private component.Manager manager = new component.Manager();
+        private Popupok popupok = null;
 
         BackgroundWorker worker_builder = new BackgroundWorker();
         BackgroundWorker worker_starter = new BackgroundWorker();
         BackgroundWorker worker_updater = new BackgroundWorker();
 
-        public Preview(Image image, string herit_root, string herit_default_name, configuration.Configuration.Movie herit_movie)
+        public Preview(List<string> favorite, List<string> queue, Image image, string herit_root, string herit_default_name, configuration.Configuration.Movie herit_movie)
         {
             InitializeComponent();
             InitializeWorker();
@@ -35,6 +43,8 @@ namespace Miia.window
             movie = herit_movie;
             default_name = herit_default_name;
             root = herit_root;
+            new_favorite = favorite;
+            new_queue = queue;
         }
 
         private void InitializeWorker()
@@ -170,6 +180,56 @@ namespace Miia.window
                     Application.DoEvents();
                 }
             }
+        }
+
+        private void button_star_Click(object sender, EventArgs e)
+        {
+            if (new_favorite.Contains(movie.name) == false)
+            {
+                new_favorite.Add(movie.name);
+                popupok = new Popupok($"'{movie.name}' as been added to favorite list");
+                refresh = true;
+            }
+            else
+            {
+                popupok = new Popupok($"'{movie.name}' as already been added to favorite list");
+            }
+            popupok.ShowDialog();
+        }
+
+        private void button_queue_Click(object sender, EventArgs e)
+        {
+            if (new_queue.Contains(movie.name) == false)
+            {
+                new_queue.Add(movie.name);
+                popupok = new Popupok($"'{movie.name}' as been added to watching list");
+                refresh = true;
+            } else
+            {
+                popupok = new Popupok($"'{movie.name}' as already been added to watching list");
+            }
+            popupok.ShowDialog();
+        }
+
+        private void border_MouseDown(object sender, MouseEventArgs e)
+        {
+            offset.X = e.X;
+            offset.Y = e.Y;
+            mouse_down = true;
+        }
+
+        private void border_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouse_down == true)
+            {
+                Point pos = PointToScreen(e.Location);
+                Location = new Point(pos.X - offset.X, pos.Y - offset.Y);
+            }
+        }
+
+        private void border_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouse_down = false;
         }
     }
 }

@@ -40,6 +40,8 @@ namespace Miia
             this.label1 = new System.Windows.Forms.Label();
             this.button_close = new System.Windows.Forms.Button();
             this.view_content = new System.Windows.Forms.ListView();
+            this.button_favorites = new System.Windows.Forms.Button();
+            this.button_queue = new System.Windows.Forms.Button();
             this.border.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +49,8 @@ namespace Miia
             // border
             // 
             this.border.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.border.Controls.Add(this.button_queue);
+            this.border.Controls.Add(this.button_favorites);
             this.border.Controls.Add(this.panel1);
             this.border.Controls.Add(this.button_reload);
             this.border.Controls.Add(this.button_settings);
@@ -190,6 +194,44 @@ namespace Miia
             this.view_content.UseCompatibleStateImageBehavior = false;
             this.view_content.DoubleClick += new System.EventHandler(this.view_content_DoubleClick);
             // 
+            // button_favorites
+            // 
+            this.button_favorites.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_favorites.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_favorites.BackgroundImage")));
+            this.button_favorites.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_favorites.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button_favorites.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_favorites.FlatAppearance.BorderSize = 0;
+            this.button_favorites.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_favorites.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_favorites.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_favorites.ForeColor = System.Drawing.Color.Transparent;
+            this.button_favorites.Location = new System.Drawing.Point(831, 0);
+            this.button_favorites.Name = "button_favorites";
+            this.button_favorites.Size = new System.Drawing.Size(25, 25);
+            this.button_favorites.TabIndex = 11;
+            this.button_favorites.UseVisualStyleBackColor = false;
+            this.button_favorites.Click += new System.EventHandler(this.button_favorites_Click);
+            // 
+            // button_queue
+            // 
+            this.button_queue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_queue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_queue.BackgroundImage")));
+            this.button_queue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_queue.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button_queue.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_queue.FlatAppearance.BorderSize = 0;
+            this.button_queue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_queue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_queue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_queue.ForeColor = System.Drawing.Color.Transparent;
+            this.button_queue.Location = new System.Drawing.Point(806, 0);
+            this.button_queue.Name = "button_queue";
+            this.button_queue.Size = new System.Drawing.Size(25, 25);
+            this.button_queue.TabIndex = 12;
+            this.button_queue.UseVisualStyleBackColor = false;
+            this.button_queue.Click += new System.EventHandler(this.button_queue_Click);
+            // 
             // Miia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +264,8 @@ namespace Miia
         private System.Windows.Forms.Button button_settings;
         private System.Windows.Forms.Button button_reload;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button_queue;
+        private System.Windows.Forms.Button button_favorites;
     }
 }
 

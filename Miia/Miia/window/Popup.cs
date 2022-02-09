@@ -48,5 +48,10 @@ namespace Miia.window
 
             Close();
         }
+
+        private void Popup_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

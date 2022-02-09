@@ -29,8 +29,8 @@ namespace Miia.window
         /// </summary>
         private void InitializeComponent()
         {
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Preview));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             this.border = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +46,8 @@ namespace Miia.window
             this.label9 = new System.Windows.Forms.Label();
             this.combo_episodes = new System.Windows.Forms.ComboBox();
             this.button_play = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
+            this.button_star = new System.Windows.Forms.Button();
+            this.button_queue = new System.Windows.Forms.Button();
             this.border.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.preview_box)).BeginInit();
@@ -54,6 +56,8 @@ namespace Miia.window
             // border
             // 
             this.border.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.border.Controls.Add(this.button_queue);
+            this.border.Controls.Add(this.button_star);
             this.border.Controls.Add(this.pictureBox1);
             this.border.Controls.Add(this.label1);
             this.border.Controls.Add(this.button_close);
@@ -62,6 +66,9 @@ namespace Miia.window
             this.border.Name = "border";
             this.border.Size = new System.Drawing.Size(413, 25);
             this.border.TabIndex = 9;
+            this.border.MouseDown += new System.Windows.Forms.MouseEventHandler(this.border_MouseDown);
+            this.border.MouseMove += new System.Windows.Forms.MouseEventHandler(this.border_MouseMove);
+            this.border.MouseUp += new System.Windows.Forms.MouseEventHandler(this.border_MouseUp);
             // 
             // pictureBox1
             // 
@@ -214,11 +221,11 @@ namespace Miia.window
             this.button_play.ColorContrastOnClick = 45;
             this.button_play.ColorContrastOnHover = 45;
             this.button_play.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.button_play.CustomizableEdges = borderEdges2;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.button_play.CustomizableEdges = borderEdges4;
             this.button_play.DialogResult = System.Windows.Forms.DialogResult.None;
             this.button_play.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.button_play.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -285,6 +292,44 @@ namespace Miia.window
             this.button_play.UseDefaultRadiusAndThickness = true;
             this.button_play.Click += new System.EventHandler(this.button_play_Click);
             // 
+            // button_star
+            // 
+            this.button_star.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_star.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_star.BackgroundImage")));
+            this.button_star.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_star.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button_star.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.button_star.FlatAppearance.BorderSize = 0;
+            this.button_star.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.button_star.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.button_star.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_star.ForeColor = System.Drawing.Color.Transparent;
+            this.button_star.Location = new System.Drawing.Point(363, 0);
+            this.button_star.Name = "button_star";
+            this.button_star.Size = new System.Drawing.Size(25, 25);
+            this.button_star.TabIndex = 24;
+            this.button_star.UseVisualStyleBackColor = false;
+            this.button_star.Click += new System.EventHandler(this.button_star_Click);
+            // 
+            // button_queue
+            // 
+            this.button_queue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.button_queue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_queue.BackgroundImage")));
+            this.button_queue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_queue.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button_queue.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.button_queue.FlatAppearance.BorderSize = 0;
+            this.button_queue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.button_queue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.button_queue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_queue.ForeColor = System.Drawing.Color.Transparent;
+            this.button_queue.Location = new System.Drawing.Point(338, 0);
+            this.button_queue.Name = "button_queue";
+            this.button_queue.Size = new System.Drawing.Size(25, 25);
+            this.button_queue.TabIndex = 25;
+            this.button_queue.UseVisualStyleBackColor = false;
+            this.button_queue.Click += new System.EventHandler(this.button_queue_Click);
+            // 
             // Preview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,5 +381,7 @@ namespace Miia.window
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox combo_episodes;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 button_play;
+        private System.Windows.Forms.Button button_star;
+        private System.Windows.Forms.Button button_queue;
     }
 }

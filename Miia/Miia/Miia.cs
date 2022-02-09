@@ -25,10 +25,12 @@ namespace Miia
 
         private window.Settings window_settings = null;
         private window.Preview window_preview = null;
+        private window.ContentViewer content_viewer = null;
 
         private BackgroundWorker worker_loader = new BackgroundWorker();
         private BackgroundWorker worker_builder = new BackgroundWorker();
         private BackgroundWorker worker_saver = new BackgroundWorker();
+        private BackgroundWorker worker_ui = new BackgroundWorker();
 
         private Image no_splash = Image.FromFile("assets\\no_splash.png");
 
@@ -43,6 +45,7 @@ namespace Miia
             worker_loader.DoWork += new DoWorkEventHandler(loader);
             worker_saver.DoWork += new DoWorkEventHandler(saver);
             worker_builder.DoWork += new DoWorkEventHandler(builder);
+            worker_ui.DoWork += new DoWorkEventHandler(load_ui);
         }
 
         private void button_close_Click(object sender, EventArgs e)
@@ -90,12 +93,18 @@ namespace Miia
             mouse_down = false;
         }
 
-
         private void Miia_Load(object sender, EventArgs e)
         {
             worker_loader.RunWorkerAsync();
 
             while (worker_loader.IsBusy == true)
+            {
+                Application.DoEvents();
+            }
+
+            worker_ui.RunWorkerAsync();
+
+            while (worker_ui.IsBusy == true)
             {
                 Application.DoEvents();
             }
@@ -109,17 +118,10 @@ namespace Miia
             {
                 Application.DoEvents();
             }
+            reload();
+            worker_ui.RunWorkerAsync();
 
-            worker_saver.RunWorkerAsync();
-
-            while (worker_saver.IsBusy == true)
-            {
-                Application.DoEvents();
-            }
-
-            worker_loader.RunWorkerAsync();
-
-            while (worker_loader.IsBusy == true)
+            while (worker_ui.IsBusy == true)
             {
                 Application.DoEvents();
             }
@@ -145,7 +147,6 @@ namespace Miia
         public void loader(object sender, EventArgs e)
         {
             configuration = manager.load();
-            load_ui();
         }
 
         public void saver(object sender, EventArgs e)
@@ -192,7 +193,7 @@ namespace Miia
             }
         }
 
-        private void load_ui()
+        private void load_ui(object sender, EventArgs e)
         {
             List<string> items = new List<string>();
             ImageList images = new ImageList();
@@ -248,22 +249,50 @@ namespace Miia
         private void view_content_DoubleClick(object sender, EventArgs e)
         {
             int index = 0;
+            bool reload_data = false;
+
             if (view_content.SelectedItems.Count > 0)
             {
                 window_preview = new window.Preview(
+                    configuration.favorite,
+                    configuration.queue,
                     view_content.LargeImageList.Images[view_content.SelectedIndices[0]],
                     configuration.root,
                     configuration.default_name,
                     get_movie(view_content.SelectedItems[0].Text)
                 );
-
                 window_preview.ShowDialog();
                 if (window_preview.watched != null)
                 {
                     index = get_movie_index(view_content.SelectedItems[0].Text);
                     configuration.library[index].read = window_preview.watched;
-                    reload();
+                    reload_data = true;
                 }
+                reload_data = window_preview.refresh;
+                if (reload_data == true)
+                    reload();
+            }
+        }
+
+        private void button_favorites_Click(object sender, EventArgs e)
+        {
+            content_viewer = new window.ContentViewer("Favorites", configuration.favorite);
+            content_viewer.ShowDialog();
+            if (content_viewer.refresh == true)
+            {
+                configuration.favorite = content_viewer.new_content;
+                reload();
+            }
+        }
+
+        private void button_queue_Click(object sender, EventArgs e)
+        {
+            content_viewer = new window.ContentViewer("Watchlish", configuration.queue);
+            content_viewer.ShowDialog();
+            if (content_viewer.refresh == true)
+            {
+                configuration.queue = content_viewer.new_content;
+                reload();
             }
         }
     }

@@ -1,32 +1,18 @@
 {
-    "version": null,
+    "version": "1.0.0",
     "root": null,
-    "default_name" : "Season 1",
+    "default_name": "Season 1",
     "splash_size": {
         "width": 128,
         "height": 192
     },
-    "extensions" : [
+    "extensions": [
         "avi",
         "mp4",
         "mkv"
     ],
-    "favorite": [
-        {
-            "name": null,
-            "path": null,
-            "splash": null,
-            "read": null
-        }
-    ],
-    "queue": [
-        {
-            "name": null,
-            "path": null,
-            "splash": null,
-            "read": null
-        }
-    ],
+    "favorite": [],
+    "queue": [],
     "library": [
         {
             "name": null,

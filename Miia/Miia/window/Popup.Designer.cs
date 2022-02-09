@@ -287,6 +287,7 @@ namespace Miia.window
             this.Name = "Popup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Popup";
+            this.Load += new System.EventHandler(this.Popup_Load);
             this.border.ResumeLayout(false);
             this.border.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

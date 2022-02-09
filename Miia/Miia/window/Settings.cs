@@ -129,7 +129,6 @@ namespace Miia.window
                         {
                             foreach (var file in renamed)
                             {
-                                Console.WriteLine($"{file.Key} {file.Value}");
                                 File.Move(file.Key, file.Value);
                             }
                             popupok.ShowDialog();
