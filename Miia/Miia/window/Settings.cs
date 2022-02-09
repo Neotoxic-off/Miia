@@ -155,11 +155,18 @@ namespace Miia.window
         {
             button_cleanner.Enabled = false;
 
-            worker_cleanner.RunWorkerAsync();
-            while (worker_cleanner.IsBusy == true)
+            if (configuration.root != null)
             {
-                Application.DoEvents();
+                if (Directory.Exists(configuration.root) == true)
+                {
+                    worker_cleanner.RunWorkerAsync();
+                    while (worker_cleanner.IsBusy == true)
+                    {
+                        Application.DoEvents();
+                    }
+                }
             }
+            button_cleanner.Enabled = true;
         }
     }
 }

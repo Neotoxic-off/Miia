@@ -85,3 +85,5 @@ C:\Users\paulg\Documents\Code\Miia\Miia\Miia\bin\Release\Bunifu.UI.WinForms.Buni
 C:\Users\paulg\Documents\Code\Miia\Miia\Miia\bin\Release\Bunifu.UI.WinForms.BunifuUserControl.xml
 C:\Users\paulg\Documents\Code\Miia\Miia\Miia\obj\Release\Miia.window.Preview.resources
 C:\Users\paulg\Documents\Code\Miia\Miia\Miia\obj\Release\Miia.exe.licenses
+C:\Users\paulg\Documents\Code\Miia\Miia\Miia\obj\Release\Miia.window.Popupok.resources
+C:\Users\paulg\Documents\Code\Miia\Miia\Miia\obj\Release\Miia.window.Popup.resources
