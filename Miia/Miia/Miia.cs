@@ -223,16 +223,6 @@ namespace Miia
             component_manager.listview(view_content, images, items);
         }
 
-        private void button_favorite_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button_queue_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private configuration.Configuration.Movie get_movie(string name)
         {
             foreach (configuration.Configuration.Movie movie in configuration.library)

@@ -181,6 +181,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="window\Popupok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="window\Popupok.Designer.cs">
+      <DependentUpon>Popupok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="window\Popup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="window\Popup.Designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
+    </Compile>
     <Compile Include="window\Preview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +218,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="window\Popupok.resx">
+      <DependentUpon>Popupok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="window\Popup.resx">
+      <DependentUpon>Popup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="window\Preview.resx">
       <DependentUpon>Preview.cs</DependentUpon>
     </EmbeddedResource>

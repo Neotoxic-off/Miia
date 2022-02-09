@@ -125,6 +125,9 @@ namespace Miia.window
                     Process.Start(selected);
                     watched = $"{episodes}";
                 }
+            } else
+            {
+                button_play.Enabled = true;
             }
         }
 

@@ -16,12 +16,23 @@
     <img src="https://img.shields.io/github/downloads/Neotoxic-off/Miia/total?style=for-the-badge">
 <p/>
 
+## Requirements
+
+- .NET *4.7.3+*
+
+## Libraries
+
+- Bunifu UI
+- Krypton
+- Newtonsoft
+
 ## Features
 
 - [X] GUI user frendly
 - [X] Splash screen viewer
 - [ ] Queue list
 - [ ] Favorite list
+- [ ] File renamer
 - [X] Editable settings
 - [X] External devices detection
 - [X] Create a subfolder if no folder is found

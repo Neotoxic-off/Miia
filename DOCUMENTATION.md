@@ -111,6 +111,11 @@ The following splash will be displayed instead
         "width": 128,
         "height": 192
     },
+    "extensions" : [
+        "avi",
+        "mp4",
+        "mkv"
+    ],
     "favorite": [
         {
             "name": null,

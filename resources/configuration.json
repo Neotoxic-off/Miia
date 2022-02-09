@@ -1,11 +1,16 @@
 {
-    "version": "0.0.1 dev",
+    "version": null,
     "root": null,
-    "default_name" : "No Season",
+    "default_name" : "Season 1",
     "splash_size": {
         "width": 128,
         "height": 192
     },
+    "extensions" : [
+        "avi",
+        "mp4",
+        "mkv"
+    ],
     "favorite": [
         {
             "name": null,
