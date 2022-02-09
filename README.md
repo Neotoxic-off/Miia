@@ -39,6 +39,10 @@
 
 ## Preview
 
+<video controls width="250">
+    <source src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/VIDEO.mp4" type="video/mp4">
+</video>
+
 <p align>
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/GUI.png" height="50%" width="50%"/>
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/PREVIEW.png" height="35%" width="35%"/>
