@@ -100,6 +100,49 @@ The following splash will be displayed instead
 └ 📄 Miia.exe.config
 ```
 
+## Cleanner
+
+Before
+```
+📁 Library
+└ 📁 No Game no Life
+  ├ 📄 splash.png
+  └ 📁 Season 1
+    ├ 📄 episode_1.mp4
+    ├ 📄 episode_2.mp4
+    ├ 📄 episode_3.mp4
+    ├ 📄 episode_4.mp4
+    ├ 📄 episode_5.mp4
+    ├ 📄 episode_6.mp4
+    ├ 📄 episode_7.mp4
+    ├ 📄 episode_8.mp4
+    ├ 📄 episode_9.mp4
+    ├ 📄 episode_10.mp4
+    ├ 📄 episode_11.mp4
+    └ 📄 episode_12.mp4
+```
+
+After
+```
+📁 Library
+└ 📁 No Game no Life
+  ├ 📄 splash.png
+  └ 📁 Season 1
+    ├ 📄 1.mp4
+    ├ 📄 2.mp4
+    ├ 📄 3.mp4
+    ├ 📄 4.mp4
+    ├ 📄 5.mp4
+    ├ 📄 6.mp4
+    ├ 📄 7.mp4
+    ├ 📄 8.mp4
+    ├ 📄 9.mp4
+    ├ 📄 10.mp4
+    ├ 📄 11.mp4
+    └ 📄 12.mp4
+```
+
+
 ## Data Format
 
 ```JSON

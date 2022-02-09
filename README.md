@@ -32,7 +32,7 @@
 - [X] Splash screen viewer
 - [ ] Queue list
 - [ ] Favorite list
-- [ ] File renamer
+- [X] File renamer
 - [X] Editable settings
 - [X] External devices detection
 - [X] Create a subfolder if no folder is found
