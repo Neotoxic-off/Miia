@@ -27,6 +27,7 @@ namespace Miia.window
         public bool refresh = false;
         private List<string> new_favorite = null;
         private List<string> new_queue = null;
+        private List<string> new_extensions = null;
         private component.Manager manager = new component.Manager();
         private Popupok popupok = null;
 
@@ -34,7 +35,7 @@ namespace Miia.window
         BackgroundWorker worker_starter = new BackgroundWorker();
         BackgroundWorker worker_updater = new BackgroundWorker();
 
-        public Preview(List<string> favorite, List<string> queue, Image image, string herit_root, string herit_default_name, configuration.Configuration.Movie herit_movie)
+        public Preview(List<string> extensions, List<string> favorite, List<string> queue, Image image, string herit_root, string herit_default_name, configuration.Configuration.Movie herit_movie)
         {
             InitializeComponent();
             InitializeWorker();
@@ -45,6 +46,7 @@ namespace Miia.window
             root = herit_root;
             new_favorite = favorite;
             new_queue = queue;
+            new_extensions = extensions;
         }
 
         private void InitializeWorker()
@@ -104,11 +106,17 @@ namespace Miia.window
             return (splitted[splitted.Length - 1]);
         }
 
+        private string remove_extension(string path)
+        {
+            string[] splitted = path.Split('.');
+
+            return (splitted[splitted.Length - 2]);
+        }
+
         private void loader()
         {
-            List<string> cleanned = new List<string>();
+            List<string> cleanned = Directory.GetDirectories($"{root}\\{movie.path}").ToList();
 
-            cleanned = Directory.GetDirectories($"{root}\\{movie.path}").ToList();
             for (int i = 0; i < cleanned.Count; i++)
             {
                 cleanned[i] = get_name(cleanned[i]);
@@ -155,15 +163,29 @@ namespace Miia.window
                 Close();
         }
 
+        private bool is_valid(string name)
+        {
+            foreach (string extension in new_extensions)
+            {
+                if (name.EndsWith($".{extension}") == true)
+                    return (true);
+            }
+            return (false);
+        }
+
         private void update_episodes(object sender, EventArgs e)
         {
-            List<string> cleanned = new List<string>();
+            string name = null;
             object cbb = manager.get_combobox(combo_seasons);
+            List<string> cleanned = Directory.GetFiles($"{root}\\{movie.path}\\{cbb}").ToList();
 
-            cleanned = Directory.GetFiles($"{root}\\{movie.path}\\{cbb}").ToList();
             for (int i = 0; i < cleanned.Count; i++)
             {
-                cleanned[i] = get_name(cleanned[i]);
+                name = get_name(cleanned[i]);
+                if (is_valid(name) == true)
+                    cleanned[i] = name;
+                else
+                    cleanned[i] = string.Empty;
             }
 
             manager.combobox(combo_episodes, cleanned);

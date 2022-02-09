@@ -254,6 +254,7 @@ namespace Miia
             if (view_content.SelectedItems.Count > 0)
             {
                 window_preview = new window.Preview(
+                    configuration.extensions,
                     configuration.favorite,
                     configuration.queue,
                     view_content.LargeImageList.Images[view_content.SelectedIndices[0]],

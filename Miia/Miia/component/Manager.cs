@@ -27,7 +27,8 @@ namespace Miia.component
                 {
                     for (int i = 0; i < items.Count; i++)
                     {
-                        controller.Items.Add(items[i], i);
+                        if (items[i] != string.Empty)
+                            controller.Items.Add(items[i], i);
                     }
                 } else
                 {
@@ -47,7 +48,8 @@ namespace Miia.component
                 {
                     for (int i = 0; i < items.Count; i++)
                     {
-                        controller.Items.Add(items[i]);
+                        if (items[i] != string.Empty)
+                            controller.Items.Add(items[i]);
                     }
                 }
                 else

@@ -120,20 +120,20 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button_queue.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAACSSURBVEhL7ZMxCoNAEEUXUqa2COQEsbaSoMdIrL2DeBbxSlbeZ/M+TL+jsIGEffCKgX3iwk4o
-        FP6QGOMbF6xQ84BjSst9EGwonqjZheU+OF+j/v6iFm94T2m5D4JTHoKgxwmv9oEG25SW+yDYUXSo2YXl
-        Pjivm8yY9SanPATBA1+Y9XV9ZU+0Iyvm2/hC4VcI4QNHmwN3injwMQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAJJJREFUSEvt
+        kzEKg0AQRRdSprYI5ASxtpKgx0isvYN4FvFKVt5n8z5Mv6OwgYR98IqBfeLCTigU/pAY4xsXrFDzgGNK
+        y30QbCieqNmF5T44X6P+/qIWb3hPabkPglMegqDHCa/2gQbblJb7INhRdKjZheU+OK+bzJj1Jqc8BMED
+        X5j1dX1lT7QjK+bb+ELhVwjhA0ebA3eKePAxAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="button_star.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAADqSURBVEhL7ZKxbQJBEEUvsDvBCblDKABX4owOjgB6gAZICV2DIzdgS2QEdo5lguN9NLtafAM3
-        JET3pKfVzfw/0VU9PZmmaS75gFN7vb1dCOCVzWcUer29XQjglc0ViiV6e7sQwCvjI/6i2KO+W7kwXhln
-        WKLvVi4M4Ro/8B0/cYsemmuvnPK1neiG8Bh/8Ba+cWQnuiGcXGME5U6dMKlgzvEPPTTXPufDlCVTf5OH
-        5mfZMP+KE7zGC+Z8mLKEC0wccGNvQvucD1OW8AvFGw5RM736FtrnfJii9IQ7fC1mpZprP0iznp57UlVH
-        7nzJVpWZ+xkAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAOpJREFUSEvt
+        krFtAkEQRS+wO8EJuUMoAFfijA6OAHqABkgJXYMjN2BLZAR2jmWC4300u1p8AzckRPekp9XN/D/RVT09
+        maZpLvmAU3u9vV0I4JXNZxR6vb1dCOCVzRWKJXp7uxDAK+Mj/qLYo75buTBeGWdYou9WLgzhGj/wHT9x
+        ix6aa6+c8rWd6IbwGH/wFr5xZCe6IZxcYwTlTp0wqWDO8Q89NNc+58OUJVN/k4fmZ9kw/4oTvMYL5nyY
+        soQLTBxwY29C+5wPU5bwC8UbDlEzvfoW2ud8mKL0hDt8LWalmms/SLOenntSVUfufMlWlZn7GQAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
