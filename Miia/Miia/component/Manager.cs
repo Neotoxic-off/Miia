@@ -71,5 +71,13 @@ namespace Miia.component
 
             return (result);
         }
+
+        public void check(CheckBox controller, bool checked_value)
+        {
+            controller.Invoke(new MethodInvoker(delegate
+            {
+                controller.Checked = checked_value;
+            }));
+        }
     }
 }

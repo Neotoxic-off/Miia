@@ -45,6 +45,8 @@
 - [X] Editable settings
 - [X] External devices detection
 - [X] Create a subfolder if no folder is found
+- [X] Right click manager
+- [X] Set a serie as completed
 
 ## Preview
 
@@ -57,8 +59,3 @@
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/PREVIEW.png" height="35%" width="35%"/>
     <img src="https://raw.githubusercontent.com/Neotoxic-off/Miia/main/resources/CLEANNER.png" height="35%" width="35%"/>
 <p/>
-
-## Todo list
-
-- Right click manager
-- Set as serie completed

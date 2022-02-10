@@ -32,6 +32,7 @@ namespace Miia.configuration
             public string path { get; set; }
             public string splash { get; set; }
             public string read { get; set; }
+            public bool completed { get; set; }
         }
     }
 }

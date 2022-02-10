@@ -147,7 +147,7 @@ After
 
 ```JSON
 {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "root": null,
     "default_name": "Season 1",
     "splash_size": {
@@ -166,7 +166,8 @@ After
             "name": null,
             "path": null,
             "splash": null,
-            "read": null
+            "read": null,
+            "completed" : false
         }
     ]
 }

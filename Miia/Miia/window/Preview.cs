@@ -22,9 +22,10 @@ namespace Miia.window
         private string root = null;
         private string default_name = null;
         public string watched = null;
+        public bool finished = false;
+        public bool refresh = false;
 
         private configuration.Configuration.Movie movie = null;
-        public bool refresh = false;
         private List<string> new_favorite = null;
         private List<string> new_queue = null;
         private List<string> new_extensions = null;
@@ -47,6 +48,7 @@ namespace Miia.window
             new_favorite = favorite;
             new_queue = queue;
             new_extensions = extensions;
+            finished = movie.completed;
         }
 
         private void InitializeWorker()
@@ -74,6 +76,7 @@ namespace Miia.window
             int counter = 0;
 
             manager.label(label_name, movie.name);
+            manager.check(check_complete, finished);
             manager.label(last_watched, movie.read);
             if (movie.path != null)
             {
@@ -252,6 +255,11 @@ namespace Miia.window
         private void border_MouseUp(object sender, MouseEventArgs e)
         {
             mouse_down = false;
+        }
+
+        private void check_complete_CheckedChanged(object sender, EventArgs e)
+        {
+            finished = check_complete.Checked;
         }
     }
 }

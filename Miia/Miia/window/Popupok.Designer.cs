@@ -174,7 +174,7 @@ namespace Miia.window
             // 
             this.label_question.Location = new System.Drawing.Point(12, 43);
             this.label_question.Name = "label_question";
-            this.label_question.Size = new System.Drawing.Size(235, 33);
+            this.label_question.Size = new System.Drawing.Size(235, 57);
             this.label_question.TabIndex = 27;
             this.label_question.Text = "All files have been renamed successfully";
             // 

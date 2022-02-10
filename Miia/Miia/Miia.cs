@@ -21,8 +21,10 @@ namespace Miia
         private configuration.Configuration.Content configuration = null;
         private configuration.Manager manager = new configuration.Manager();
         private component.Manager component_manager = new component.Manager();
+
         private files.Filer filer = new files.Filer();
 
+        private window.Popupok popupok = null;
         private window.Settings window_settings = null;
         private window.Preview window_preview = null;
         private window.ContentViewer content_viewer = null;
@@ -53,23 +55,9 @@ namespace Miia
             Close();
         }
 
-        private void button_reduce_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
         private void button_settings_Click(object sender, EventArgs e)
         {
-            window_settings = new window.Settings(configuration);
-            window_settings.ShowDialog();
-
-            configuration = window_settings.configuration;
-            worker_saver.RunWorkerAsync();
-
-            while (worker_saver.IsBusy == true)
-            {
-                Application.DoEvents();
-            }
+            
         }
 
         private void border_MouseDown(object sender, MouseEventArgs e)
@@ -102,23 +90,6 @@ namespace Miia
                 Application.DoEvents();
             }
 
-            worker_ui.RunWorkerAsync();
-
-            while (worker_ui.IsBusy == true)
-            {
-                Application.DoEvents();
-            }
-        }
-
-        private void button_reload_Click(object sender, EventArgs e)
-        {
-            worker_builder.RunWorkerAsync();
-
-            while (worker_builder.IsBusy == true)
-            {
-                Application.DoEvents();
-            }
-            reload();
             worker_ui.RunWorkerAsync();
 
             while (worker_ui.IsBusy == true)
@@ -162,6 +133,7 @@ namespace Miia
             movie.path = path;
             movie.splash = "splash.jpg";
             movie.read = "0";
+            movie.completed = false;
 
             return (movie);
         }
@@ -263,19 +235,120 @@ namespace Miia
                     get_movie(view_content.SelectedItems[0].Text)
                 );
                 window_preview.ShowDialog();
+                index = get_movie_index(view_content.SelectedItems[0].Text);
                 if (window_preview.watched != null)
                 {
-                    index = get_movie_index(view_content.SelectedItems[0].Text);
                     configuration.library[index].read = window_preview.watched;
                     reload_data = true;
                 }
-                reload_data = window_preview.refresh;
+                if (window_preview.finished != configuration.library[index].completed)
+                {
+                    configuration.library[index].completed = window_preview.finished;
+                    reload_data = true;
+                }
+                if (window_preview.refresh == true)
+                    reload_data = true;
                 if (reload_data == true)
                     reload();
             }
         }
 
-        private void button_favorites_Click(object sender, EventArgs e)
+        private void addListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string name = null;
+            bool refresh = false;
+
+            if (view_content.SelectedItems.Count > 0)
+            {
+                name = view_content.SelectedItems[0].Text;
+                if (configuration.queue.Contains(name) == false)
+                {
+                    configuration.queue.Add(name);
+                    popupok = new window.Popupok($"'{name}' as been added to favorite list");
+                    refresh = true;
+                }
+                else
+                {
+                    popupok = new window.Popupok($"'{name}' as already been added to favorite list");
+                }
+                popupok.ShowDialog();
+                if (refresh == true)
+                    reload();
+            }
+        }
+
+        private void addToFavoriteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string name = null;
+            bool refresh = false;
+
+            if (view_content.SelectedItems.Count > 0)
+            {
+                name = view_content.SelectedItems[0].Text;
+                if (configuration.favorite.Contains(name) == false)
+                {
+                    configuration.queue.Add(name);
+                    popupok = new window.Popupok($"'{name}' as been added to favorite list");
+                    refresh = true;
+                }
+                else
+                {
+                    popupok = new window.Popupok($"'{name}' as already been added to favorite list");
+                }
+                popupok.ShowDialog();
+                if (refresh == true)
+                    reload();
+            }
+        }
+
+        private void button_queue_Click_1(object sender, EventArgs e)
+        {
+            content_viewer = new window.ContentViewer("Watchlish", configuration.queue);
+            content_viewer.ShowDialog();
+            if (content_viewer.refresh == true)
+            {
+                configuration.queue = content_viewer.new_content;
+                reload();
+            }
+        }
+
+        private void button_reduce_Click_1(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void button_settings_Click_1(object sender, EventArgs e)
+        {
+            window_settings = new window.Settings(configuration);
+            window_settings.ShowDialog();
+
+            configuration = window_settings.configuration;
+            worker_saver.RunWorkerAsync();
+
+            while (worker_saver.IsBusy == true)
+            {
+                Application.DoEvents();
+            }
+        }
+
+        private void button_reload_Click_1(object sender, EventArgs e)
+        {
+            worker_builder.RunWorkerAsync();
+
+            while (worker_builder.IsBusy == true)
+            {
+                Application.DoEvents();
+            }
+            reload();
+            worker_ui.RunWorkerAsync();
+
+            while (worker_ui.IsBusy == true)
+            {
+                Application.DoEvents();
+            }
+        }
+
+        private void button_favorites_Click_1(object sender, EventArgs e)
         {
             content_viewer = new window.ContentViewer("Favorites", configuration.favorite);
             content_viewer.ShowDialog();
@@ -286,14 +359,31 @@ namespace Miia
             }
         }
 
-        private void button_queue_Click(object sender, EventArgs e)
+        private void setAsCompletedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            content_viewer = new window.ContentViewer("Watchlish", configuration.queue);
-            content_viewer.ShowDialog();
-            if (content_viewer.refresh == true)
+            string name = null;
+            bool refresh = false;
+            int id = 0;
+
+            if (view_content.SelectedItems.Count > 0)
             {
-                configuration.queue = content_viewer.new_content;
-                reload();
+                name = view_content.SelectedItems[0].Text;
+                id = get_movie_index(name);
+                if (configuration.library[id].completed == false)
+                {
+                    configuration.library[id].completed = true;
+                    popupok = new window.Popupok($"'{name}' as been set to completed");
+                    refresh = true;
+                }
+                else
+                {
+                    configuration.library[id].completed = false;
+                    popupok = new window.Popupok($"'{name}' as been set to uncompleted");
+                    refresh = true;
+                }
+                popupok.ShowDialog();
+                if (refresh == true)
+                    reload();
             }
         }
     }

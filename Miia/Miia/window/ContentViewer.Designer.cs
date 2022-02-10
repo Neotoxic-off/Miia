@@ -30,11 +30,11 @@ namespace Miia.window
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContentViewer));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             this.border = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button_close = new System.Windows.Forms.Button();
             this.label_type = new System.Windows.Forms.Label();
+            this.button_close = new System.Windows.Forms.Button();
             this.button_remove = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.list_content = new System.Windows.Forms.ListView();
             this.border.SuspendLayout();
@@ -63,6 +63,15 @@ namespace Miia.window
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // label_type
+            // 
+            this.label_type.AutoSize = true;
+            this.label_type.Location = new System.Drawing.Point(35, 6);
+            this.label_type.Name = "label_type";
+            this.label_type.Size = new System.Drawing.Size(51, 13);
+            this.label_type.TabIndex = 11;
+            this.label_type.Text = "unknown";
+            // 
             // button_close
             // 
             this.button_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(66)))), ((int)(((byte)(69)))));
@@ -81,15 +90,6 @@ namespace Miia.window
             this.button_close.TabIndex = 2;
             this.button_close.UseVisualStyleBackColor = false;
             this.button_close.Click += new System.EventHandler(this.button_close_Click);
-            // 
-            // label_type
-            // 
-            this.label_type.AutoSize = true;
-            this.label_type.Location = new System.Drawing.Point(35, 6);
-            this.label_type.Name = "label_type";
-            this.label_type.Size = new System.Drawing.Size(51, 13);
-            this.label_type.TabIndex = 11;
-            this.label_type.Text = "unknown";
             // 
             // button_remove
             // 
@@ -110,11 +110,11 @@ namespace Miia.window
             this.button_remove.ColorContrastOnClick = 45;
             this.button_remove.ColorContrastOnHover = 45;
             this.button_remove.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges4.BottomLeft = true;
-            borderEdges4.BottomRight = true;
-            borderEdges4.TopLeft = true;
-            borderEdges4.TopRight = true;
-            this.button_remove.CustomizableEdges = borderEdges4;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.button_remove.CustomizableEdges = borderEdges3;
             this.button_remove.DialogResult = System.Windows.Forms.DialogResult.None;
             this.button_remove.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.button_remove.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -192,7 +192,7 @@ namespace Miia.window
             this.list_content.Size = new System.Drawing.Size(276, 128);
             this.list_content.TabIndex = 27;
             this.list_content.UseCompatibleStateImageBehavior = false;
-            this.list_content.View = System.Windows.Forms.View.List;
+            this.list_content.View = System.Windows.Forms.View.Tile;
             // 
             // ContentViewer
             // 

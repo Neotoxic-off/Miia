@@ -48,6 +48,7 @@ namespace Miia.window
             this.label9 = new System.Windows.Forms.Label();
             this.combo_episodes = new System.Windows.Forms.ComboBox();
             this.button_play = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
+            this.check_complete = new System.Windows.Forms.CheckBox();
             this.border.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.preview_box)).BeginInit();
@@ -205,7 +206,7 @@ namespace Miia.window
             this.combo_seasons.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_seasons.ForeColor = System.Drawing.Color.White;
             this.combo_seasons.FormattingEnabled = true;
-            this.combo_seasons.Location = new System.Drawing.Point(200, 120);
+            this.combo_seasons.Location = new System.Drawing.Point(200, 125);
             this.combo_seasons.Name = "combo_seasons";
             this.combo_seasons.Size = new System.Drawing.Size(201, 21);
             this.combo_seasons.TabIndex = 18;
@@ -214,7 +215,7 @@ namespace Miia.window
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(146, 123);
+            this.label8.Location = new System.Drawing.Point(146, 128);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 19;
@@ -223,7 +224,7 @@ namespace Miia.window
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(146, 148);
+            this.label9.Location = new System.Drawing.Point(146, 155);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 20;
@@ -235,7 +236,7 @@ namespace Miia.window
             this.combo_episodes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_episodes.ForeColor = System.Drawing.Color.White;
             this.combo_episodes.FormattingEnabled = true;
-            this.combo_episodes.Location = new System.Drawing.Point(200, 145);
+            this.combo_episodes.Location = new System.Drawing.Point(200, 152);
             this.combo_episodes.Name = "combo_episodes";
             this.combo_episodes.Size = new System.Drawing.Size(201, 21);
             this.combo_episodes.TabIndex = 21;
@@ -330,12 +331,24 @@ namespace Miia.window
             this.button_play.UseDefaultRadiusAndThickness = true;
             this.button_play.Click += new System.EventHandler(this.button_play_Click);
             // 
+            // check_complete
+            // 
+            this.check_complete.AutoSize = true;
+            this.check_complete.Location = new System.Drawing.Point(200, 179);
+            this.check_complete.Name = "check_complete";
+            this.check_complete.Size = new System.Drawing.Size(76, 17);
+            this.check_complete.TabIndex = 24;
+            this.check_complete.Text = "Completed";
+            this.check_complete.UseVisualStyleBackColor = true;
+            this.check_complete.CheckedChanged += new System.EventHandler(this.check_complete_CheckedChanged);
+            // 
             // Preview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(413, 236);
+            this.Controls.Add(this.check_complete);
             this.Controls.Add(this.button_play);
             this.Controls.Add(this.combo_episodes);
             this.Controls.Add(this.label9);
@@ -383,5 +396,6 @@ namespace Miia.window
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 button_play;
         private System.Windows.Forms.Button button_star;
         private System.Windows.Forms.Button button_queue;
+        private System.Windows.Forms.CheckBox check_complete;
     }
 }
