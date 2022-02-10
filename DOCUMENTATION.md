@@ -147,7 +147,7 @@ After
 
 ```JSON
 {
-    "version": "1.1.0",
+    "version": "1.2.0",
     "root": null,
     "default_name": "Season 1",
     "splash_size": {
