@@ -145,22 +145,36 @@ namespace Miia
             return (splitted[splitted.Length - 1]);
         }
 
+        private bool exists(string name)
+        {
+            foreach (configuration.Configuration.Movie movie_data in configuration.library)
+            {
+                if (movie_data.name == name)
+                    return (true);
+            }
+            return (false);
+        }
+
         public void builder(object sender, EventArgs e)
         {
             string[] directories = null;
+            string cleanned = null;
 
             if (configuration.root != null)
             {
                 directories = filer.get_directories(configuration.root);
-                configuration.library.Clear();
                 foreach (string directory in directories)
                 {
-                    configuration.library.Add(
-                        movie(
-                            get_name(directory),
-                            $"{directory.Replace($"{configuration.root}\\", string.Empty)}"
-                        )
-                    );
+                    cleanned = get_name(directory);
+                    if (exists(cleanned) == false)
+                    {
+                        configuration.library.Add(
+                            movie(
+                                cleanned,
+                                $"{directory.Replace($"{configuration.root}\\", string.Empty)}"
+                            )
+                        );
+                    }
                 }
             }
         }
