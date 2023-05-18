@@ -20,6 +20,9 @@
   </a>
 <p/>
 
+# IMPORTANT
+- Project is not maintained anymore! A new one has been created: https://github.com/Neotoxic-off/Makima
+
 ## Requirements
 
 - .NET *4.7.3+*
